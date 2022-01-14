@@ -1,7 +1,7 @@
-package com.mariworld.accountdemo.user.dto;
+package com.mariworld.accountdemo.user.model.dto;
 
 import com.mariworld.accountdemo.common.Converter;
-import com.mariworld.accountdemo.user.entity.UserEntity;
+import com.mariworld.accountdemo.user.model.entity.UserEntity;
 import lombok.Data;
 
 @Data

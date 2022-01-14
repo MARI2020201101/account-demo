@@ -1,6 +1,6 @@
 package com.mariworld.accountdemo.user.controller;
 
-import com.mariworld.accountdemo.user.dto.UserDTO;
+import com.mariworld.accountdemo.user.model.dto.UserDTO;
 import com.mariworld.accountdemo.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

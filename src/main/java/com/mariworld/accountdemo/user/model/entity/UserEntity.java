@@ -1,4 +1,4 @@
-package com.mariworld.accountdemo.user.entity;
+package com.mariworld.accountdemo.user.model.entity;
 
 
 import lombok.AccessLevel;

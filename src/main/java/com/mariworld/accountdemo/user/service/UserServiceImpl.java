@@ -1,6 +1,6 @@
 package com.mariworld.accountdemo.user.service;
 
-import com.mariworld.accountdemo.user.dto.UserDTO;
+import com.mariworld.accountdemo.user.model.dto.UserDTO;
 import com.mariworld.accountdemo.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
