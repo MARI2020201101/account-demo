@@ -1,8 +1,12 @@
 package com.mariworld.accountdemo.user.service;
 
-import com.mariworld.accountdemo.user.model.dto.UserDTO;
-import org.springframework.http.ResponseEntity;
+import com.mariworld.accountdemo.user.model.dto.UserRequest;
+import com.mariworld.accountdemo.user.model.dto.UserResponse;
 
 public interface UserService {
-    ResponseEntity<UserDTO> signin(UserDTO userDTO);
+    UserResponse signin(UserRequest userRequest);
+    UserResponse signup(UserRequest userRequest);
+
+    UserResponse signinV2(UserRequest userRequest);
+    UserResponse signupV2(UserRequest userRequest);
 }

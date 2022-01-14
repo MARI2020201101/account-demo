@@ -1,9 +1,7 @@
 package com.mariworld.accountdemo.user.model.entity;
 
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -11,7 +9,10 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name="users")
 @Builder
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Getter
+@AllArgsConstructor
+@NoArgsConstructor
+@ToString
 public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
