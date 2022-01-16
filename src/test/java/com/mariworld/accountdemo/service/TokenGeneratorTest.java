@@ -13,7 +13,7 @@ public class TokenGeneratorTest {
 
         String token = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhdXRoIHRva2VuIiwiaWQiOiJ1c2VyMDEiLCJleHAiOjE2NDIzMzAyNTQsImlhdCI6MTY0MjMyNjY1NH0.H-w8ju2cZxYGRXe5vcp_heTNMyMVinb7crS2GnK3gz90oYs1LfBAyEcS4PV_1rIZPxHHHA0hCV4YzFdcJwxPLQ";
         String id = "user01";
-        boolean isValidateToken = tokenGenerator.validateToken(token, id);
+        boolean isValidateToken = tokenGenerator.validateToken(token);
         log.info("isValidateToken ? --> {} ", isValidateToken);
     }
 }

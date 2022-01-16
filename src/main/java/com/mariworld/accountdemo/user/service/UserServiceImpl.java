@@ -1,19 +1,17 @@
 package com.mariworld.accountdemo.user.service;
 
 import com.mariworld.accountdemo.user.helper.PasswordEncoder;
-import com.mariworld.accountdemo.user.helper.TokenGenerator;
 import com.mariworld.accountdemo.user.model.dto.UserRequest;
 import com.mariworld.accountdemo.user.model.dto.UserResponse;
 import com.mariworld.accountdemo.user.model.entity.UserEntity;
 import com.mariworld.accountdemo.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.Optional;
 
-@Service
+
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
@@ -23,7 +21,6 @@ public class UserServiceImpl implements UserService{
 
     private final UserRepository userRepository;
 
-    private final TokenGenerator tokenGenerator;
 
     @Override
     public UserResponse signin(UserRequest userRequest) {

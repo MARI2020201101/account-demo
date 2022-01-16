@@ -1,12 +1,14 @@
-package com.mariworld.accountdemo.common.handler;
+package com.mariworld.accountdemo.global.handler;
 
 import com.mariworld.accountdemo.common.CustomCode;
 import com.mariworld.accountdemo.common.CustomResponseEntity;
-import com.mariworld.accountdemo.common.exception.CustomException;
+import com.mariworld.accountdemo.global.exception.CustomException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Base64;
 
 @RestController
 @ControllerAdvice
@@ -22,7 +24,7 @@ public class BasicExceptionHandler {
         CustomCode customCode = e.getCustomCode();
         HttpHeaders  headers = new HttpHeaders();
         headers.set("Result-Code", customCode.getCode());
-        headers.set("Result-Message", customCode.getUserMessage());
+        headers.set("Result-Message", Base64.getEncoder().encodeToString(customCode.getUserMessage().getBytes()));
         return new CustomResponseEntity(headers, customCode);
     }
 }

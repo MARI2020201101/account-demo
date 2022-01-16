@@ -31,7 +31,7 @@ public class TokenGenerator {
     }
 
 
-    public boolean validateToken(String token , String id){
+    public boolean validateToken(String token){
 
         Claims claims = Jwts.parser()
                 .setSigningKey(SECRET_KEY)
@@ -40,8 +40,7 @@ public class TokenGenerator {
 
         log.info("claims body --> {}" , claims);
 
-        String idFromToken = claims.get("id", String.class);
         Date expiration = claims.getExpiration();
-        return idFromToken.equals(id) && expiration.after(new Date());
+        return expiration.after(new Date());
     }
 }

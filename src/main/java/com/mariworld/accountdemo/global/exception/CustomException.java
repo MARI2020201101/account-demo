@@ -1,4 +1,4 @@
-package com.mariworld.accountdemo.common.exception;
+package com.mariworld.accountdemo.global.exception;
 
 import com.mariworld.accountdemo.common.CustomCode;
 import lombok.Data;

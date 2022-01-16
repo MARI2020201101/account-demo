@@ -1,7 +1,7 @@
 package com.mariworld.accountdemo.user.service;
 
 import com.mariworld.accountdemo.common.CustomCode;
-import com.mariworld.accountdemo.common.exception.CustomException;
+import com.mariworld.accountdemo.global.exception.CustomException;
 import com.mariworld.accountdemo.user.helper.PasswordEncoder;
 import com.mariworld.accountdemo.user.helper.TokenGenerator;
 import com.mariworld.accountdemo.user.model.dto.UserRequest;
