@@ -17,6 +17,7 @@ public class UserResponse {
     private String id;
     private String pwd;
     private LocalDateTime createdAt;
+    private String token;
 
     public UserResponse(UserEntity userEntity){
         this.id = userEntity.getId();

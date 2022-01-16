@@ -1,16 +1,13 @@
 package com.mariworld.accountdemo.user.controller;
 
+import com.mariworld.accountdemo.common.CustomCode;
+import com.mariworld.accountdemo.common.CustomResponseEntity;
 import com.mariworld.accountdemo.user.model.dto.UserRequest;
 import com.mariworld.accountdemo.user.model.dto.UserResponse;
 import com.mariworld.accountdemo.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -20,27 +17,31 @@ public class UserController {
 
     private final UserService userService;
 
+    @GetMapping("/welcome")
+    public CustomResponseEntity<String> welcome(String name){
+        return new CustomResponseEntity<>(String.format("welcome --** %s **--", name), CustomCode.SUCCESS);
+    }
     @PostMapping("/signin")
-    public ResponseEntity<UserResponse> signin(@RequestBody UserRequest userRequest){
+    public CustomResponseEntity<UserResponse> signin(@RequestBody UserRequest userRequest){
         UserResponse signin = userService.signin(userRequest);
-        return new ResponseEntity<>(signin , HttpStatus.OK);
+        return new CustomResponseEntity<>(signin, CustomCode.SUCCESS);
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<UserResponse> signup(@RequestBody UserRequest userRequest){
+    public CustomResponseEntity<UserResponse> signup(@RequestBody UserRequest userRequest){
         UserResponse signup = userService.signup(userRequest);
-        return new ResponseEntity<>(signup , HttpStatus.OK);
+        return new CustomResponseEntity<>(signup , CustomCode.SUCCESS);
     }
 
     @PostMapping("/signin/v2")
-    public ResponseEntity<UserResponse> signinV2(@RequestBody UserRequest userRequest){
+    public CustomResponseEntity<UserResponse> signinV2(@RequestBody UserRequest userRequest){
         UserResponse signin = userService.signinV2(userRequest);
-        return new ResponseEntity<>(signin , HttpStatus.OK);
+        return new CustomResponseEntity<>(signin , CustomCode.SUCCESS);
     }
 
     @PostMapping("/signup/v2")
-    public ResponseEntity<UserResponse> signupV2(@RequestBody UserRequest userRequest){
+    public CustomResponseEntity<UserResponse> signupV2(@RequestBody UserRequest userRequest){
         UserResponse signup = userService.signupV2(userRequest);
-        return new ResponseEntity<>(signup , HttpStatus.OK);
+        return new CustomResponseEntity<>(signup , CustomCode.SUCCESS);
     }
 }

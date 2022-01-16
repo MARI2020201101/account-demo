@@ -1,4 +1,4 @@
-package com.mariworld.accountdemo.user.service;
+package com.mariworld.accountdemo.user.helper;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.stereotype.Component;
