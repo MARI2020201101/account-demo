@@ -1,5 +1,7 @@
 package com.mariworld.accountdemo.user.service;
 
+import com.mariworld.accountdemo.common.CustomCode;
+import com.mariworld.accountdemo.common.exception.CustomException;
 import com.mariworld.accountdemo.user.helper.PasswordEncoder;
 import com.mariworld.accountdemo.user.helper.TokenGenerator;
 import com.mariworld.accountdemo.user.model.dto.UserRequest;
@@ -17,7 +19,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 @Slf4j
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImplV2 implements UserService{
 
     private final PasswordEncoder passwordEncoder;
 
@@ -25,12 +27,13 @@ public class UserServiceImpl implements UserService{
 
     private final TokenGenerator tokenGenerator;
 
+
     @Override
     public UserResponse signin(UserRequest userRequest) {
         String id = userRequest.getId();
         String pwd = userRequest.getPwd();
         Optional<UserEntity> optionalUser = userRepository.findById(id);
-        if(optionalUser.isPresent()) throw new RuntimeException("already exist user id");
+        if(optionalUser.isPresent()) throw new CustomException(CustomCode.ALREADY_EXIST_USER);
 
         UserEntity userEntity = UserEntity.builder()
                 .id(id)
@@ -45,14 +48,15 @@ public class UserServiceImpl implements UserService{
     public UserResponse signup(UserRequest userRequest) {
         Optional<UserEntity> findedEntity = userRepository.findById(userRequest.getId());
 
-        if(! findedEntity.isPresent()) throw new RuntimeException("non exist user");
+        if(! findedEntity.isPresent()) throw new CustomException(CustomCode.NON_EXIST_USER);
 
         UserEntity userEntity = findedEntity.get();
         boolean matches = passwordEncoder.matches(userRequest.getPwd(), userEntity.getPwd());
 
-        if(! matches) throw new RuntimeException("non match password");
+        if(! matches) throw new CustomException(CustomCode.NON_MATCH_PASSWORD);
 
-        return new UserResponse(userEntity);
+        UserResponse userResponse = new UserResponse(userEntity);
+        userResponse.setToken(tokenGenerator.generateToken(userRequest.getId()));
+        return userResponse;
     }
-
 }

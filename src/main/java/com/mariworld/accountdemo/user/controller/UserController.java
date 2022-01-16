@@ -33,15 +33,4 @@ public class UserController {
         return new CustomResponseEntity<>(signup , CustomCode.SUCCESS);
     }
 
-    @PostMapping("/signin/v2")
-    public CustomResponseEntity<UserResponse> signinV2(@RequestBody UserRequest userRequest){
-        UserResponse signin = userService.signinV2(userRequest);
-        return new CustomResponseEntity<>(signin , CustomCode.SUCCESS);
-    }
-
-    @PostMapping("/signup/v2")
-    public CustomResponseEntity<UserResponse> signupV2(@RequestBody UserRequest userRequest){
-        UserResponse signup = userService.signupV2(userRequest);
-        return new CustomResponseEntity<>(signup , CustomCode.SUCCESS);
-    }
 }
