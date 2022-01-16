@@ -23,13 +23,12 @@ public class TokenGenerator {
 
         return Jwts.builder()
                 .setClaims(claims)
-                .setSubject("auth token")
+                .setSubject("auth-token")
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 60*60*1000 ))
                 .signWith(SignatureAlgorithm.HS512, SECRET_KEY)
                 .compact();
     }
-
 
     public boolean validateToken(String token){
 

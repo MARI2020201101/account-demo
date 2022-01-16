@@ -17,11 +17,14 @@ import java.util.List;
 public class WebConfig extends WebMvcConfigurerAdapter {
 
     private final AuthHandler authHandler;
+    private final List<String> URL_PATTERNS = Arrays.asList("/**/user/**");
+    private final List<String> EXCLUDE_PATTERNS = Arrays.asList("/**/signin", "/**/signup");
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        List<String> URL_PATTERNS = Arrays.asList("/api/user/**");
+
         registry.addInterceptor(authHandler)
-                .addPathPatterns(URL_PATTERNS);
+                .addPathPatterns(URL_PATTERNS)
+                .excludePathPatterns(EXCLUDE_PATTERNS);
     }
 }

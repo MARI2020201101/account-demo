@@ -41,7 +41,9 @@ public class UserServiceImplV2 implements UserService{
                 .build();
         UserEntity savedUser = userRepository.save(userEntity);
 
-        return new UserResponse(savedUser);
+        UserResponse userResponse = new UserResponse(savedUser);
+        userResponse.setToken(tokenGenerator.generateToken(userRequest.getId()));
+        return userResponse;
     }
 
     @Override

@@ -2,11 +2,14 @@ package com.mariworld.accountdemo.user.model.entity;
 
 
 import lombok.*;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 @Table(name="users")
 @Builder
 @Getter
@@ -19,5 +22,12 @@ public class UserEntity {
     private Long sequence;
     private String id;
     private String pwd;
-    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @CreatedDate
+    private LocalDateTime createdAt;
+//
+//    @PrePersist
+//    private void setCreatedAt(){
+//        createdAt = LocalDateTime.now();
+//    }
 }

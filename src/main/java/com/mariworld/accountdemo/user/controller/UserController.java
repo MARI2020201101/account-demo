@@ -21,6 +21,7 @@ public class UserController {
     public CustomResponseEntity<String> welcome(String name){
         return new CustomResponseEntity<>(String.format("welcome --** %s **--", name), CustomCode.SUCCESS);
     }
+
     @PostMapping("/signin")
     public CustomResponseEntity<UserResponse> signin(@RequestBody UserRequest userRequest){
         UserResponse signin = userService.signin(userRequest);

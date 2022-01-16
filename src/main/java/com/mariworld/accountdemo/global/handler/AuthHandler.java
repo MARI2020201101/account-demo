@@ -21,7 +21,6 @@ public class AuthHandler implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         String authorization = request.getHeader("Authorization");
-        log.warn("authorization {}", authorization);
 
         if(authorization == null || !authorization.contains("Bearer")) throw new CustomException(CustomCode.LOGIN_REQUAIRED);
 
