@@ -2,6 +2,7 @@ package com.mariworld.accountdemo.account.model.entity;
 
 
 import lombok.*;
+import org.hibernate.envers.Audited;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -17,6 +18,7 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
+@Audited
 public class AccountEntity {
 
     @Id
