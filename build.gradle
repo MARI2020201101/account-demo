@@ -24,10 +24,10 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
 	// swagger
-	implementation group: 'io.springfox', name: 'springfox-swagger2'
-	implementation group: 'io.springfox', name: 'springfox-swagger-ui'
-	implementation group: 'io.swagger', name: 'swagger-annotations'
-	implementation group: 'io.swagger', name: 'swagger-models'
+//	implementation group: 'io.springfox', name: 'springfox-swagger2'
+//	implementation group: 'io.springfox', name: 'springfox-swagger-ui'
+//	implementation group: 'io.swagger', name: 'swagger-annotations'
+//	implementation group: 'io.swagger', name: 'swagger-models'
 
 	implementation group: 'org.hibernate', name: 'hibernate-envers', version: '5.6.4.Final'
 

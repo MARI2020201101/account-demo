@@ -7,17 +7,14 @@ import com.mariworld.accountdemo.global.adaptor.LocalDateTimeDeserializer;
 import com.mariworld.accountdemo.global.adaptor.LocalDateTimeSerializer;
 import com.mariworld.accountdemo.global.handler.AuthHandler;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
-import org.springframework.http.converter.xml.MarshallingHttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.List;
 
@@ -34,11 +31,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
         registry.addInterceptor(authHandler)
                 .addPathPatterns(URL_PATTERNS)
                 .excludePathPatterns(EXCLUDE_PATTERNS);
     }
+
     @Override
     public void configureMessageConverters(List<HttpMessageConverter<?>> converters) {
         JavaTimeModule module = new JavaTimeModule();

@@ -1,3 +1,5 @@
+
+
 spring:
   application:
     name: account-demo
@@ -21,3 +23,5 @@ spring:
   output:
     ansi:
       enabled: ALWAYS
+server:
+  port: 8081
