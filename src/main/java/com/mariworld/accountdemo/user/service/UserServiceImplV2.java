@@ -61,4 +61,6 @@ public class UserServiceImplV2 implements UserService{
         userResponse.setToken(tokenGenerator.generateToken(userRequest.getId()));
         return userResponse;
     }
+
+
 }
